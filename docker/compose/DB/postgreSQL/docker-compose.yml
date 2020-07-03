@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  db:
+    image: "postgres:11"
+    container_name: "pgsql"
+    user: postgres:postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: rlacjf
+    ports:
+      - "54320:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+
+# docker run -d --name pgsql -v pgdata:/var/lib/postgresql/data -p 54320:5432 postgres:11
+# docker exec -it pgsql psql -U postgres

@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "seongwon"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+
+    volumes:
+      - "./init/:/docker-entrypoint-initdb.d/"
+    ports:
+      - 3306:3306 
+    container_name: example_mysql
